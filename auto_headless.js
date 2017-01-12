@@ -1,5 +1,7 @@
 var Nightmare = require('nightmare');       
 
+var total = process.env.TOTAL || 1
+
 function init(){
 
 var nightmare = Nightmare({ show: false, 
@@ -41,6 +43,6 @@ nightmare
     },3000)
   });
 }
-for (var i=1;i<=4;i++){
+for (var i=1;i<=total;i++){
   setTimeout(init,i*1000)
 }
