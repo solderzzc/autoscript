@@ -5,7 +5,7 @@ function init(){
 var nightmare = Nightmare({ show: true, 
   webPreferences: {
     partition: 'persist: testing'
-}});
+},waitTimeout:1200000});
 
 Nightmare.action('clearCache',
   function(name, options, parent, win, renderer, done) {
@@ -26,7 +26,7 @@ nightmare
   .evaluate(function () {
                 return 'ok';
             })
-  .wait(29000)
+  .wait(200000)
   .end()
   .then(function (result) {
     console.log(result);

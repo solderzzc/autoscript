@@ -7,7 +7,7 @@ function init(){
 var nightmare = Nightmare({ show: false, 
   webPreferences: {
     partition: 'persist: testing'
-}});
+},waitTimeout:2000000});
 
 Nightmare.action('clearCache',
   function(name, options, parent, win, renderer, done) {
@@ -24,11 +24,11 @@ nightmare
   .goto('http://demo-cloud.apps.58dahuo.com/')
   .wait(10000)
   .wait('#playbtn')
-  .click('#playbtn')
+//  .click('#playbtn')
   .evaluate(function () {
                 return 'ok';
             })
-  .wait(29000)
+  .wait(240000)
   .end()
   .then(function (result) {
     console.log(result);
